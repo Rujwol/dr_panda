@@ -38,7 +38,7 @@ public class CreateFormActivity extends AppCompatActivity {
                 Pet tempPet = new Pet();
                 tempPet.setPetBreed(pet_breed);
                 tempPet.setPetName(pet_name);
-                tempPet.setPid(1);
+                //tempPet.setPid(1);
 
                 petDao.insertPet(tempPet);
             }

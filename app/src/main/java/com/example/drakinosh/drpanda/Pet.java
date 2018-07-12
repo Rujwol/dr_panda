@@ -8,7 +8,7 @@ import android.arch.persistence.room.ColumnInfo;
 @Entity
 public class Pet {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private int pid;
 
     @ColumnInfo(name = "pet_name")
@@ -16,6 +16,9 @@ public class Pet {
 
     @ColumnInfo(name = "pet_breed")
     private String petBreed;
+
+    @ColumnInfo(name = "pet_dob")
+    private String petDOB;
 
     public int getPid() {
         return pid;
@@ -40,5 +43,9 @@ public class Pet {
     public void setPetName(String petName) {
         this.petName = petName;
     }
+
+    public void setPetDOB(String petDOB) { this.petDOB = petDOB;}
+
+    public String getPetDOB() { return petDOB; }
 
 }

@@ -36,6 +36,11 @@
 
         </activity>
 
+        <activity android:name=".ViewPetActivity">
+
+        </activity>
+
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDqeKMCim4Pia3tzbCSKyq-8GWwVabuJYM"/>

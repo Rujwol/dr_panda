@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:id="@+id/pet_lin_layout"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/et_petdate_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/petdate_value_field" />
+
+    <EditText
+        android:id="@+id/et_petdate_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/petdate_type_field" />
+
+    <Button
+        android:id="@+id/but_petdate_add"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="@string/petdate_add_but" />
+
+</LinearLayout>

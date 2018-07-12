@@ -18,4 +18,8 @@
     <string name="fa_allergies">Allergies</string>
     <string name="fa_injuries">Injuries</string>
     <string name="fa_placeholder">[Placeholder]</string>
+
+    <string name="petdate_value_field">Date</string>
+    <string name="petdate_type_field">Type(Check or Vacc)</string>
+    <string name="petdate_add_but">Add Date</string>
 </resources>
