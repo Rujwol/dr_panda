@@ -21,6 +21,10 @@
 
     <string name="petdate_value_field">Date</string>
     <string name="petdate_type_field">Type(Check or Vacc)</string>
+    <string name="petdate_time_field">24 hour fmt(e.g. 17:03)</string>
     <string name="petdate_add_but">Add Date</string>
     <string name="petdate_view_check_but">View Graph for Checkups</string>
+
+    <string name="notification_goto_but">Notification Settter</string>
+    <string name="noti_add_but">Add Notification</string>
 </resources>

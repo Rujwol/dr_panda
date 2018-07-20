@@ -1,17 +1,22 @@
 package com.example.drakinosh.drpanda;
 
+import android.app.DatePickerDialog;
 import android.arch.persistence.room.Room;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class ViewPetActivity extends AppCompatActivity {
 
@@ -35,13 +40,42 @@ public class ViewPetActivity extends AppCompatActivity {
         Pet tempPet = petDao.getPetById(1);
 
 
+        // Create datepicker
+        final Calendar myCalendar = Calendar.getInstance();
+
+
 
         // Add new dates to database
         final EditText pdDate = findViewById(R.id.et_petdate_value);
         final EditText pdType = findViewById(R.id.et_petdate_type);
 
         Button checkGraphBut = findViewById(R.id.but_petcheck_graph);
-        Button pdBut = findViewById(R.id.but_petdate_add);
+        final Button pdBut = findViewById(R.id.but_petdate_add);
+        final Button notiBut = findViewById(R.id.but_notification_goto);
+
+
+        //add datepicking to pdDate button
+
+        final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                myCalendar.set(Calendar.YEAR, year);
+                myCalendar.set(Calendar.MONTH, month);
+                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateLabel(pdDate, myCalendar);
+            }
+        };
+
+        pdDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new DatePickerDialog(ViewPetActivity.this, date,
+                            myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                            myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+
+            }
+        });
+
 
         pdBut.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -111,6 +145,29 @@ public class ViewPetActivity extends AppCompatActivity {
             lin_lay.addView(petDateText);
         }
 
+        // Button for notification stter
+        notiBut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //need to pass pet id
+                Intent myIntent = new Intent(ViewPetActivity.this, SetNotification.class);
+                myIntent.putExtra("PET_ID", pid);
+                startActivity(myIntent);
+            }
+        });
+
+
+
+
+
+    }
+
+    private void updateLabel(EditText pdDate, Calendar myCalendar) {
+        String format = "yyyy-MM-dd";
+        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.US);
+
+        pdDate.setText(sdf.format(myCalendar.getTime()));
 
     }
 }
