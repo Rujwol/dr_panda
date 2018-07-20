@@ -22,4 +22,5 @@
     <string name="petdate_value_field">Date</string>
     <string name="petdate_type_field">Type(Check or Vacc)</string>
     <string name="petdate_add_but">Add Date</string>
+    <string name="petdate_view_check_but">View Graph for Checkups</string>
 </resources>

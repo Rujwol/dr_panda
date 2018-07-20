@@ -25,4 +25,12 @@
         android:layout_gravity="right"
         android:text="@string/petdate_add_but" />
 
+    <Button
+        android:id="@+id/but_petcheck_graph"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop = "12dp"
+        android:text="@string/petdate_view_check_but" />
+
 </LinearLayout>
