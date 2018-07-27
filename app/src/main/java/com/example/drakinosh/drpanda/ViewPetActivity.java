@@ -3,14 +3,18 @@ package com.example.drakinosh.drpanda;
 import android.app.DatePickerDialog;
 import android.arch.persistence.room.Room;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -32,12 +36,12 @@ public class ViewPetActivity extends AppCompatActivity {
         //WARNING: allowed main thread queries
         //future me: see - https://stackoverflow.com/questions/44167111/android-room-simple-select-query-cannot-access-database-on-the-main-thread
 
-        final AppDatabase appDatabase = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, DBASE_NAME).allowMainThreadQueries().build();
+        final AppDatabase appDatabase = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, DBASE_NAME).fallbackToDestructiveMigration().allowMainThreadQueries().build();
         final PetDao petDao = appDatabase.getPetDao();
         final PetDateDao petDateDao = appDatabase.getPetDateDao();
 
         //Get single profile
-        Pet tempPet = petDao.getPetById(1);
+        Pet tempPet = petDao.getPetById(pid);
 
 
         // Create datepicker
@@ -52,6 +56,14 @@ public class ViewPetActivity extends AppCompatActivity {
         Button checkGraphBut = findViewById(R.id.but_petcheck_graph);
         final Button pdBut = findViewById(R.id.but_petdate_add);
         final Button notiBut = findViewById(R.id.but_notification_goto);
+        Button petMedBut = findViewById(R.id.but_medication);
+        Button petAllergies = findViewById(R.id.but_allergies);
+        ImageView petImage = findViewById(R.id.pet_image);
+
+        // set image, if exists
+        if (!tempPet.getImagePath().equals(" ")) {
+            petImage.setImageBitmap(BitmapFactory.decodeFile(tempPet.getImagePath()));
+        }
 
 
         //add datepicking to pdDate button
@@ -94,6 +106,13 @@ public class ViewPetActivity extends AppCompatActivity {
         });
 
 
+        //set text fields
+
+        TextView petNameView = findViewById(R.id.pet_name_field);
+        petNameView.setText("Name: " + tempPet.getPetName());
+        TextView petBreedView = findViewById(R.id.pet_breed_field);
+        petBreedView.setText("Breed: " + tempPet.getPetBreed());
+
 
         LinearLayout lin_lay = findViewById(R.id.pet_lin_layout);
 
@@ -105,16 +124,11 @@ public class ViewPetActivity extends AppCompatActivity {
         lin_lay.addView(petName);
 
 
+
         // display list of dates
         // to be removed
         List<PetDate> petDates = petDateDao.getPetDatesByPId(pid);
         final ArrayList<String> petDateCheckStrings = new ArrayList<>();
-
-        /*
-        petDateCheckStrings.add("2018-01-02");
-        petDateCheckStrings.add("2018-01-03");
-        petDateCheckStrings.add("2018-01-04");
-        */
 
 
         for (PetDate pdate: petDates) {
@@ -152,6 +166,17 @@ public class ViewPetActivity extends AppCompatActivity {
 
                 //need to pass pet id
                 Intent myIntent = new Intent(ViewPetActivity.this, SetNotification.class);
+                myIntent.putExtra("PET_ID", pid);
+                startActivity(myIntent);
+            }
+        });
+
+        petMedBut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //need to pass pet id
+                Intent myIntent = new Intent(ViewPetActivity.this, MedicationActivity.class);
                 myIntent.putExtra("PET_ID", pid);
                 startActivity(myIntent);
             }

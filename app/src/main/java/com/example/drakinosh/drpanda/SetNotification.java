@@ -39,7 +39,7 @@ public class SetNotification extends AppCompatActivity {
         //future me: see - https://stackoverflow.com/questions/44167111/android-room-simple-select-query-cannot-access-database-on-the-main-thread
 
 
-        final AppDatabase appDatabase = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, DBASE_NAME).allowMainThreadQueries().build();
+        final AppDatabase appDatabase = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, DBASE_NAME).fallbackToDestructiveMigration().allowMainThreadQueries().build();
         final PetDao petDao = appDatabase.getPetDao();
 
         final DateFormat datetime_form = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.ENGLISH);
@@ -107,7 +107,10 @@ public class SetNotification extends AppCompatActivity {
                     // set it
                     // spelling mistake bhayechha.
                     Intent yaruki = new Intent(SetNotification.this, NotiReciever.class);
-                    yaruki.putExtra(NotiReciever.NOTIFICATION_ID, 1);
+
+                    //yaruki.putExtra(NotiReciever.NOTIFICATION_ID, 1);
+                    yaruki.putExtra(NotiReciever.NOTIFICATION_ID, NotificationId.getId());
+
                     yaruki.putExtra(NotiReciever.NOTIFICATION, mNoti);
                     PendingIntent pendingIntent = PendingIntent.getBroadcast(SetNotification.this,
                                         REQUEST_CODE, yaruki, PendingIntent.FLAG_UPDATE_CURRENT);

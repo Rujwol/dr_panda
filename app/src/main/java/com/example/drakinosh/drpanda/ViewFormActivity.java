@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import java.util.List;
+
 public class ViewFormActivity extends AppCompatActivity {
 
     @Override
@@ -19,34 +21,37 @@ public class ViewFormActivity extends AppCompatActivity {
         //WARNING: allowed main thread queries
         //future me: see - https://stackoverflow.com/questions/44167111/android-room-simple-select-query-cannot-access-database-on-the-main-thread
 
-        final AppDatabase appDatabase = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, DBASE_NAME).allowMainThreadQueries().build();
+        final AppDatabase appDatabase = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, DBASE_NAME).fallbackToDestructiveMigration().allowMainThreadQueries().build();
         final PetDao petDao = appDatabase.getPetDao();
 
         //Get single profile
-        final Pet tempPet = petDao.getPetById(1);
+        //final Pet tempPet = petDao.getPetById(1);
+        final List<Pet> petList = petDao.getAll();
 
-        //Display one profile
         LinearLayout lin_lay = findViewById(R.id.view_lin_layout);
 
-        //single, dynamically generated textview for now
 
-        Button petBut = new Button(this);
-        LinearLayout.LayoutParams dim = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
-        petBut.setLayoutParams(dim);
-        petBut.setText(tempPet.getPetName());
-        lin_lay.addView(petBut);
+        for (Pet tempPet: petList) {
 
-        petBut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            final Pet unchangedTempPet = tempPet;
+            Button petBut = new Button(this);
+            LinearLayout.LayoutParams dim = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT);
+            petBut.setLayoutParams(dim);
+            petBut.setText(tempPet.getPetName());
+            lin_lay.addView(petBut);
 
-                //need to pass pet id
-                Intent myIntent = new Intent(ViewFormActivity.this, ViewPetActivity.class);
-                myIntent.putExtra("PET_ID", tempPet.getPid());
-                startActivity(myIntent);
-            }
-        });
+            petBut.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    //need to pass pet id
+                    Intent myIntent = new Intent(ViewFormActivity.this, ViewPetActivity.class);
+                    myIntent.putExtra("PET_ID", unchangedTempPet.getPid());
+                    startActivity(myIntent);
+                }
+            });
+        }
 
 
     }

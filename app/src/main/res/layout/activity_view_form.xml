@@ -4,6 +4,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:id="@+id/view_lin_layout"
+    android:background="@color/colorLightGreen"
     android:orientation="vertical" >
 
 </LinearLayout>

@@ -29,6 +29,11 @@ public class ShowGraph extends AppCompatActivity {
         ArrayList<String> petDateCheckStrings = getIntent().getStringArrayListExtra("date_strings_check");
         Integer len = petDateCheckStrings.size();
 
+        // finish if empty data
+        if (len == 0) {
+            finish();
+        }
+
         //Date[] petCheckDates = new Date[len];
         List<Date> petCheckDates = new ArrayList<>();
 

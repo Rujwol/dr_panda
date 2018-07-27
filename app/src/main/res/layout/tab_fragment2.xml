@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
+    android:background="@color/colorLightGreen"
     android:weightSum="2">
 
 
@@ -19,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:drawableTop="@drawable/icons8_poison_96_green"
             android:text="@string/fa_food_poisoning" />
 
         <Button
@@ -26,6 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:drawableTop="@drawable/icons8_sneeze_96_green"
             android:text="@string/fa_allergies" />
 
 
@@ -35,13 +38,15 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_weight="1" >
+        android:layout_weight="1"
+        android:weightSum="2">
 
         <Button
             android:id="@+id/but_injuries"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:drawableTop="@drawable/icons8_cast_96_green"
             android:text="@string/fa_injuries" />
 
         <Button

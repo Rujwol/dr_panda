@@ -3,6 +3,7 @@
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
+    android:background="@color/colorLightGreen"
     android:orientation="vertical" >
     <EditText
         android:id="@+id/et_pet_name"
@@ -14,6 +15,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/pet_breed_field" />
+
+    <EditText
+        android:id="@+id/et_pet_gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/pet_gender_field" />
+
+    <EditText
+        android:id="@+id/et_pet_dob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="false"
+        android:hint="@string/pet_dob_field" />
+
+    <Button
+        android:id="@+id/et_imageadd_but"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bott"
+
+        android:text="@string/form_imageadd"/>
     <Button
         android:id="@+id/et_create_but"
         android:layout_width="100dp"

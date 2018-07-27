@@ -3,4 +3,9 @@
     <dimen name="activity_horizontal_margin">4dp</dimen>
     <dimen name="activity_vertical_margin">4dp</dimen>
     <dimen name="tile_margin">20dp</dimen>
+    <dimen name="field_height">25dp</dimen>
+    <dimen name="small_margin">8dp</dimen>
+    <dimen name="height_petbutton">100dp</dimen>
+    <dimen name="sidemargin_small">25dp</dimen>
+    <dimen name="medium_margin">15dp</dimen>
 </resources>

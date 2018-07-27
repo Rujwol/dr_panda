@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/add_medi_lin_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:background="@color/colorLightGreen"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/et_med_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_med_name"/>
+
+    <EditText
+        android:id="@+id/et_med_startdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="false"
+        android:hint="@string/hint_med_startdate"/>
+
+    <EditText
+        android:id="@+id/et_med_dosage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_med_dosage"/>
+
+
+    <EditText
+        android:id="@+id/et_med_weeks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_med_weeks"/>
+
+
+    <EditText
+        android:id="@+id/et_med_time"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_med_time"/>
+
+    <EditText
+        android:id="@+id/et_med_days"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_med_days"/>
+
+    <Button
+        android:id="@+id/add_medication_but"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_med"
+
+        />
+
+
+</LinearLayout>

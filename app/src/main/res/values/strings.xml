@@ -12,7 +12,11 @@
 
     <string name="pet_name_field">Pet Name</string>
     <string name="pet_breed_field">Pet Breed</string>
+    <string name="pet_gender_field">Pet Gender</string>
+    <string name="pet_dob_field">Date of Birth</string>
+    <string name="pet_check_field">Add Checkup for Pet</string>
     <string name="form_save">Save Profile</string>
+    <string name="form_imageadd">Add Image</string>
 
     <string name="fa_food_poisoning">Food Poisoning</string>
     <string name="fa_allergies">Allergies</string>
@@ -23,8 +27,20 @@
     <string name="petdate_type_field">Type(Check or Vacc)</string>
     <string name="petdate_time_field">24 hour fmt(e.g. 17:03)</string>
     <string name="petdate_add_but">Add Date</string>
-    <string name="petdate_view_check_but">View Graph for Checkups</string>
+    <string name="petdate_view_check_but">Checkup Graph</string>
+    <string name="medication_but">Medication</string>
+    <string name="allergies_but">Allergies</string>
 
-    <string name="notification_goto_but">Notification Settter</string>
+    <string name="notification_goto_but">Add Notification</string>
     <string name="noti_add_but">Add Notification</string>
+
+    <string name="profile_init_text">Pet Profile</string>
+    <string name="add_med">Add Medication</string>
+
+    <string name="hint_med_name">Medicine Name</string>
+    <string name="hint_med_weeks">Duration(in weeks)</string>
+    <string name="hint_med_dosage">Dosage</string>
+    <string name="hint_med_startdate">Start Date</string>
+    <string name="hint_med_time">Time</string>
+    <string name="hint_med_days">Every x days</string>
 </resources>

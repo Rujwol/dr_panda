@@ -20,6 +20,13 @@ public class Pet {
     @ColumnInfo(name = "pet_dob")
     private String petDOB;
 
+    @ColumnInfo(name = "pet_gender")
+    private String petGender;
+
+    @ColumnInfo(name = "image_path")
+    private String imagePath;
+
+
     public int getPid() {
         return pid;
     }
@@ -47,5 +54,17 @@ public class Pet {
     public void setPetDOB(String petDOB) { this.petDOB = petDOB;}
 
     public String getPetDOB() { return petDOB; }
+
+    public void setPetGender(String petGender) { this.petGender = petGender; }
+
+    public String getPetGender() { return petGender; }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
 
 }
